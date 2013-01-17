@@ -752,7 +752,7 @@ namespace GLEED2D
 				Camera.Position = _initialCameraPosition - distance ;
 			}
 
-			if( MouseStatus.MiddleButton == ButtonState.Released )
+            if (MouseStatus.MiddleButton == ButtonState.Released && MouseStatus.LeftButton == ButtonState.Released)
 			{
 				_userActionInEditor = UserActionInEditor.Idle ;
 				_mainForm.SetCursorForCanvas( Cursors.Default ) ;

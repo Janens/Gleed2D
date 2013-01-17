@@ -51,7 +51,13 @@ namespace GLEED2D
 			ItemEditor item = _canvas.ItemUnderMouse ;
 
 			bool controlButtonPressed = KeyboardStatus.IsKeyDown( Keys.LeftControl ) ;
-			
+
+            if (KeyboardStatus.IsKeyDown( Keys.Space ) && MouseStatus.IsNewLeftMouseButtonClick())
+            {
+                _canvas.StartMovingCamera();
+                return;
+            }
+
 			if( item != null )
 			{
 				_mainForm.SetToolStripStatusLabel1( item.ItemProperties.Name ) ;
