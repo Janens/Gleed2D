@@ -30,6 +30,18 @@ namespace GLEED2D
 			{
 				_newPosition = _canvas.PositionsBeforeUserInteraction[ i ] + MouseStatus.WorldPosition - _canvas.GrabPoint ;
 
+
+
+                if (KeyboardStatus.IsKeyDown(Keys.LeftShift))
+                {
+                    if (System.Math.Abs(_newPosition.X - _canvas.PositionsBeforeUserInteraction[ i ].X)
+                        < System.Math.Abs(_newPosition.Y - _canvas.PositionsBeforeUserInteraction[ i ].Y)
+                        )
+                        _newPosition.X = _canvas.PositionsBeforeUserInteraction[ i ].X;
+                    else
+                        _newPosition.Y = _canvas.PositionsBeforeUserInteraction[ i ].Y;
+                }
+
 				if( Constants.Instance.SnapToGrid || KeyboardStatus.IsKeyDown( Keys.G ) )
 				{
 					_newPosition = _canvas.SnapToGrid( _newPosition ) ;
